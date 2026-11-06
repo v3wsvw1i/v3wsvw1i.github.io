@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>影视大全在线-影视大全在线免费观看_影视资源在线点播</title>
+<meta name="description" content="影视大全在线提供电影、电视剧、动漫与综艺的在线点播入口，按类型与年份归集片单，涵盖高分影片、热播剧集与经典老片，查找与观看一步到位。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f1220'/%3E%3Cpath d='M20 16h24a4 4 0 0 1 4 4v24a4 4 0 0 1-4 4H20a4 4 0 0 1-4-4V20a4 4 0 0 1 4-4z' fill='none' stroke='%23ffb84d' stroke-width='3'/%3E%3Cpath d='M27 24l14 8-14 8z' fill='%23ffb84d'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0d1018;
+  --bg2:#131826;
+  --card:#171d2d;
+  --line:rgba(255,255,255,.09);
+  --txt:#e9edf6;
+  --muted:#98a2ba;
+  --gold:#ffb84d;
+  --gold2:#ff8f3c;
+  --teal:#5fd0c5;
+  --radius:16px;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:
+    radial-gradient(900px 480px at 82% -12%, rgba(255,143,60,.18), transparent 60%),
+    radial-gradient(700px 420px at 6% 4%, rgba(95,208,197,.12), transparent 62%),
+    var(--bg);
+  color:var(--txt);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,"Segoe UI",sans-serif;
+  line-height:1.75;
+  font-size:16px;
+}
+a{color:inherit;text-decoration:none;}
+img,svg{display:block;}
+.wrap{width:min(1180px,calc(100% - 40px));margin:0 auto;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+
+/* header */
+.site-head{
+  position:sticky;top:0;z-index:50;
+  background:rgba(13,16,24,.82);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.head-inner{display:flex;align-items:center;gap:26px;height:68px;}
+.logo{display:flex;align-items:center;gap:10px;flex:0 0 auto;}
+.logo-mark{width:36px;height:36px;flex:0 0 auto;}
+.logo-text{
+  font-size:19px;font-weight:800;letter-spacing:.5px;
+  background:linear-gradient(92deg,var(--gold),var(--gold2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  white-space:nowrap;
+}
+.nav{display:flex;align-items:center;gap:4px;margin-left:auto;flex-wrap:wrap;}
+.nav a{
+  padding:7px 13px;border-radius:10px;font-size:14.5px;color:var(--muted);
+  transition:.18s;
+}
+.nav a:hover,.nav a:focus-visible{color:#fff;background:rgba(255,255,255,.07);}
+.nav .nav-cta{
+  color:#1a1206;font-weight:700;
+  background:linear-gradient(92deg,var(--gold),var(--gold2));
+}
+.nav .nav-cta:hover{background:linear-gradient(92deg,#ffc76e,#ffa05a);color:#1a1206;}
+.menu-toggle{display:none;margin-left:auto;background:none;border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:6px 11px;font-size:14px;}
+
+/* hero */
+.hero{padding:56px 0 34px;position:relative;overflow:hidden;}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;color:var(--gold);letter-spacing:1px;
+  border:1px solid rgba(255,184,77,.34);border-radius:999px;
+  padding:4px 13px;background:rgba(255,184,77,.08);margin-bottom:18px;
+}
+.hero h1{
+  font-size:clamp(30px,4.6vw,50px);
+  line-height:1.22;margin:0 0 18px;font-weight:900;letter-spacing:-.5px;
+}
+.hero h1 em{font-style:normal;color:var(--gold);}
+.hero p.lead{color:#b9c3d8;font-size:16.5px;margin:0 0 12px;max-width:34em;}
+.hero p.sub{color:var(--muted);font-size:14.5px;margin:0 0 26px;max-width:36em;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:12px 24px;border-radius:12px;font-size:15px;font-weight:700;
+  border:1px solid transparent;transition:.18s;
+}
+.btn-primary{background:linear-gradient(92deg,var(--gold),var(--gold2));color:#1a1206;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(255,143,60,.28);}
+.btn-ghost{border-color:var(--line);color:var(--txt);background:rgba(255,255,255,.04);}
+.btn-ghost:hover{background:rgba(255,255,255,.09);}
+
+/* hero art */
+.hero-art{position:relative;}
+.hero-art .screen{
+  border-radius:20px;overflow:hidden;border:1px solid var(--line);
+  background:linear-gradient(160deg,#1b2233,#10141f);
+  box-shadow:0 26px 60px rgba(0,0,0,.5);
+}
+.hero-art .screen svg{width:100%;height:auto;}
+.hero-art .tag{
+  position:absolute;right:-6px;bottom:-14px;
+  background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:8px 14px;font-size:13px;color:var(--teal);
+  box-shadow:0 10px 26px rgba(0,0,0,.45);
+}
+
+/* search strip */
+.search-box{
+  margin-top:32px;background:var(--bg2);border:1px solid var(--line);
+  border-radius:var(--radius);padding:16px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;
+}
+.search-box label{font-size:14px;color:var(--muted);flex:0 0 auto;}
+.search-box input{
+  flex:1 1 220px;min-width:0;background:#0b0e16;border:1px solid var(--line);
+  color:var(--txt);border-radius:10px;padding:11px 14px;font-size:15px;font-family:inherit;
+}
+.search-box input:focus{outline:none;border-color:var(--gold);}
+.search-box select{
+  background:#0b0e16;border:1px solid var(--line);color:var(--txt);
+  border-radius:10px;padding:11px 12px;font-size:14.5px;font-family:inherit;
+}
+.search-hint{width:100%;font-size:13px;color:var(--muted);}
+.search-hint strong{color:var(--gold);font-weight:600;}
+
+/* sections */
+section{padding:52px 0;}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:26px;flex-wrap:wrap;}
+.sec-head h2{
+  font-size:clamp(21px,2.6vw,27px);margin:0;font-weight:800;letter-spacing:-.3px;
+}
+.sec-head h2 span{color:var(--gold);}
+.sec-head p{margin:6px 0 0;color:var(--muted);font-size:14.5px;max-width:46em;}
+
+/* category cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:18px;}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 20px;transition:.2s;position:relative;overflow:hidden;
+}
+.card:hover{transform:translateY(-3px);border-color:rgba(255,184,77,.4);}
+.card .ico{
+  width:42px;height:42px;border-radius:12px;display:grid;place-items:center;
+  background:rgba(255,184,77,.12);margin-bottom:14px;
+}
+.card h3{margin:0 0 8px;font-size:17px;font-weight:700;}
+.card p{margin:0;font-size:14px;color:var(--muted);line-height:1.7;}
+.card .more{display:inline-block;margin-top:14px;font-size:13.5px;color:var(--gold);}
+
+/* list */
+.list-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:16px;}
+.item{
+  display:flex;gap:14px;background:var(--bg2);border:1px solid var(--line);
+  border-radius:14px;padding:14px;transition:.18s;
+}
+.item:hover{border-color:rgba(95,208,197,.42);background:#161c2c;}
+.poster{
+  width:58px;height:78px;flex:0 0 auto;border-radius:9px;overflow:hidden;
+  background:linear-gradient(150deg,#232b3e,#171c29);
+}
+.poster svg{width:100%;height:100%;}
+.item-body{min-width:0;}
+.item-body h3{margin:2px 0 4px;font-size:15.5px;font-weight:700;}
+.item-body .meta{font-size:12.5px;color:var(--muted);}
+.item-body .desc{font-size:13px;color:#a9b3c8;margin:6px 0 0;line-height:1.6;}
+.badge{
+  display:inline-block;font-size:11.5px;padding:1px 8px;border-radius:999px;
+  background:rgba(95,208,197,.14);color:var(--teal);margin-right:6px;
+}
+.badge.gold{background:rgba(255,184,77,.14);color:var(--gold);}
+
+/* text block */
+.prose{
+  background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px 32px;
+}
+.prose h2{font-size:22px;margin:0 0 14px;font-weight:800;}
+.prose h3{font-size:16.5px;margin:24px 0 8px;font-weight:700;color:#fff;}
+.prose p{margin:0 0 14px;color:#bcc6da;font-size:15px;}
+.prose p:last-child{margin-bottom:0;}
+.prose ul{margin:0 0 14px;padding-left:20px;color:#bcc6da;font-size:15px;}
+.prose li{margin-bottom:6px;}
+.prose .hl{color:var(--gold);font-weight:600;}
+
+/* download */
+.download{
+  margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;
+  flex-wrap:wrap;background:linear-gradient(100deg,#1a2133,#141927);
+  border:1px solid var(--line);border-radius:var(--radius);padding:26px 30px;
+}
+.download h2{margin:0 0 6px;font-size:20px;font-weight:800;}
+.download p{margin:0;color:var(--muted);font-size:14px;max-width:44em;}
+.btn-download{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:12px 26px;border-radius:12px;font-weight:700;font-size:15px;
+  background:rgba(255,255,255,.08);border:1px solid var(--line);color:#c8d1e2;
+  pointer-events:none;
+}
+
+/* footer */
+.site-foot{
+  border-top:1px solid var(--line);margin-top:24px;padding:34px 0 40px;
+  background:rgba(9,11,17,.6);
+}
+.foot-inner{display:flex;gap:30px;justify-content:space-between;flex-wrap:wrap;align-items:flex-start;}
+.foot-brand{max-width:34em;}
+.foot-brand .logo{margin-bottom:12px;}
+.foot-brand p{margin:0;color:var(--muted);font-size:13.5px;}
+.foot-links{display:flex;gap:34px;flex-wrap:wrap;}
+.foot-links h4{margin:0 0 10px;font-size:14px;color:#dfe5f1;font-weight:700;}
+.foot-links a{display:block;font-size:13.5px;color:var(--muted);padding:3px 0;}
+.foot-links a:hover{color:var(--gold);}
+.copy{
+  margin-top:26px;padding-top:18px;border-top:1px solid var(--line);
+  font-size:12.5px;color:#6f7a90;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:30px;}
+  .hero-art{order:-1;max-width:460px;}
+  .hero{padding:34px 0 20px;}
+}
+@media (max-width:720px){
+  .menu-toggle{display:inline-block;}
+  .nav{
+    display:none;position:absolute;top:68px;left:0;right:0;
+    background:rgba(13,16,24,.98);border-bottom:1px solid var(--line);
+    flex-direction:column;align-items:stretch;padding:12px 20px 18px;gap:2px;margin:0;
+  }
+  .nav.open{display:flex;}
+  .nav a{padding:11px 10px;font-size:15px;}
+  .nav .nav-cta{text-align:center;margin-top:6px;}
+  .head-inner{height:62px;}
+  .prose{padding:22px 20px;}
+  .download{padding:22px 20px;}
+  section{padding:38px 0;}
+  .wrap{width:calc(100% - 32px);}
+  .hero h1{font-size:30px;}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="logo" href="#top" aria-label="影视大全在线 首页">
+      <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#0f1220"/>
+        <rect x="14" y="14" width="36" height="36" rx="7" fill="none" stroke="#ffb84d" stroke-width="3"/>
+        <path d="M27 24l14 8-14 8z" fill="#ffb84d"/>
+      </svg>
+      <span class="logo-text">影视大全在线</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mainnav">菜单</button>
+    <nav class="nav" id="mainnav" aria-label="主导航">
+      <a href="#categories">影片分类</a>
+      <a href="#picks">热门片单</a>
+      <a href="#guide">观看路径</a>
+      <a href="#faq">常见问题</a>
+      <a class="nav-cta" href="#picks">立即找片</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">电影 · 剧集 · 动漫 · 综艺</span>
+          <h1>影视大全在线</h1>
+          <p class="lead">影视大全在线把分散的影视资源归拢到一处：按类型、年份与口碑排列，电影、电视剧、动漫和综艺都能在同一个入口找到，少走弯路，直接进入观看。</p>
+          <p class="sub">想找一部高分电影，或追一部正在更新的剧集，从分类或搜索开始都行。片单按题材与地区拆分，冷门老片与当期热播并列呈现。</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#picks">浏览热门片单</a>
+            <a class="btn btn-ghost" href="#categories">按类型查找</a>
+          </div>
+        </div>
+        <div class="hero-art">
+          <div class="screen">
+            <svg viewBox="0 0 480 320" role="img" aria-label="影视播放界面示意插画">
+              <defs>
+                <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#243049"/>
+                  <stop offset="1" stop-color="#141a27"/>
+                </linearGradient>
+                <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#ffb84d"/>
+                  <stop offset="1" stop-color="#ff8f3c"/>
+                </linearGradient>
+              </defs>
+              <rect width="480" height="320" fill="url(#g1)"/>
+              <circle cx="392" cy="66" r="86" fill="#ff8f3c" opacity=".13"/>
+              <circle cx="86" cy="262" r="96" fill="#5fd0c5" opacity=".11"/>
+              <rect x="42" y="42" width="396" height="196" rx="14" fill="#0e1220" stroke="#2b3448"/>
+              <circle cx="240" cy="140" r="40" fill="url(#g2)" opacity=".95"/>
+              <path d="M229 121l30 19-30 19z" fill="#1a1206"/>
+              <rect x="66" y="196" width="348" height="6" rx="3" fill="#2b3448"/>
+              <rect x="66" y="196" width="198" height="6" rx="3" fill="url(#g2)"/>
+              <circle cx="264" cy="199" r="7" fill="#fff2dc"/>
+              <rect x="66" y="52" width="86" height="10" rx="5" fill="#3a465f"/>
+              <rect x="66" y="72" width="54" height="8" rx="4" fill="#2b3448"/>
+              <g>
+                <rect x="42" y="256" width="88" height="44" rx="8" fill="#1b2334" stroke="#2b3448"/>
+                <rect x="146" y="256" width="88" height="44" rx="8" fill="#1b2334" stroke="#2b3448"/>
+                <rect x="250" y="256" width="88" height="44" rx="8" fill="#1b2334" stroke="#2b3448"/>
+                <rect x="354" y="256" width="84" height="44" rx="8" fill="#1b2334" stroke="#2b3448"/>
+                <rect x="52" y="268" width="52" height="6" rx="3" fill="#42506b"/>
+                <rect x="156" y="268" width="52" height="6" rx="3" fill="#42506b"/>
+                <rect x="260" y="268" width="52" height="6" rx="3" fill="#42506b"/>
+                <rect x="364" y="268" width="48" height="6" rx="3" fill="#42506b"/>
+              </g>
+            </svg>
+          </div>
+          <span class="tag">四大频道 · 一处直达</span>
+        </div>
+      </div>
+
+      <form class="search-box" id="searchForm" role="search" aria-label="站内找片">
+        <label for="q">快速找片</label>
+        <input id="q" type="search" placeholder="输入片名、演员或类型，例如：悬疑 / 2023 / 纪录片" autocomplete="off">
+        <select id="kind" aria-label="内容类型">
+          <option value="all">全部类型</option>
+          <option value="movie">电影</option>
+          <option value="tv">电视剧</option>
+          <option value="anime">动漫</option>
+          <option value="show">综艺</option>
+        </select>
+        <button class="btn btn-primary" type="submit">搜索</button>
+        <p class="search-hint" id="searchHint">试试输入关键词，站内片单会按名称与标签即时筛选。当前共收录 <strong id="countNum">8</strong> 条示例条目。</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section id="categories">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>影片<span>分类</span>入口</h2>
+          <p>影视大全在线按内容形态分成四个主频道，每个频道下再按题材、地区与年份细分，方便按观看习惯直接落位。</p>
+        </div>
+        <a class="btn btn-ghost" href="#picks">查看片单</a>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffb84d" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M2 9h20M7 4v5M17 4v5"/></svg>
+          </div>
+          <h3>电影频道</h3>
+          <p>剧情、动作、科幻、悬疑与文艺片并列陈列，按上映年份与口碑排序，兼顾院线新作与经典重看。</p>
+          <a class="more" href="#picks">进入电影片单 →</a>
+        </article>
+        <article class="card">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5fd0c5" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M8 5v14M16 5v14"/></svg>
+          </div>
+          <h3>电视剧频道</h3>
+          <p>国产剧、美剧、英剧与日韩剧分栏呈现，连续剧按季与集数组织，追更时不至于在长列表里迷路。</p>
+          <a class="more" href="#picks">进入剧集片单 →</a>
+        </article>
+        <article class="card">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffb84d" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z"/></svg>
+          </div>
+          <h3>动漫频道</h3>
+          <p>日本新番、国产动画与剧场版动画分开归档，系列作品标注季序，补番和追番都有清晰路径。</p>
+          <a class="more" href="#picks">进入动漫片单 →</a>
+        </article>
+        <article class="card">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5fd0c5" stroke-width="2" aria-hidden="true"><path d="M4 18V9M10 18V5M16 18v-7M22 18H2"/></svg>
+          </div>
+          <h3>综艺频道</h3>
+          <p>真人秀、脱口秀、音乐与访谈节目按播出平台归集，常驻节目标注更新节奏，适合随手挑一档下饭。</p>
+          <a class="more" href="#picks">进入综艺片单 →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PICKS -->
+  <section id="picks">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>热门<span>片单</span>速览</h2>
+          <p>以下为示例条目，用于说明影视大全在线的片单组织方式：每一条都标明类型、年份与一句内容提示，点开即可继续查看详情。</p>
+        </div>
+      </div>
+      <div class="list-grid" id="listGrid">
+        <article class="item" data-kind="movie" data-keywords="星际 科幻 冒险 电影 2024">
+          <div class="poster">
+            <svg viewBox="0 0 58 78" aria-hidden="true"><rect width="58" height="78" fill="#1c2436"/><circle cx="29" cy="30" r="13" fill="none" stroke="#ffb84d" stroke-width="2"/><ellipse cx="29" cy="30" rx="21" ry="7" fill="none" stroke="#5fd0c5" stroke-width="2"/><rect x="12" y="56" width="34" height="4" rx="2" fill="#3a465f"/></svg>
+          </div>
+          <div class="item-body">
+            <h3>深空航线</h3>
+            <p class="meta"><span class="badge">电影</span>科幻 · 2024</p>
+            <p class="desc">一支远航小队在返程途中断联，靠旧式导航仪重排坐标。</p>
+          </div>
+        </article>
+        <article class="item" data-kind="tv" data-keywords="悬疑 剧集 都市 电视剧 2023">
+          <div class="poster">
+            <svg viewBox="0 0 58 78" aria-hidden="true"><rect width="58" height="78" fill="#1e2333"/><path d="M14 52l12-16 8 10 10-14v20z" fill="none" stroke="#5fd0c5" stroke-width="2"/><circle cx="40" cy="22" r="6" fill="none" stroke="#ffb84d" stroke-width="2"/></svg>
+          </div>
+          <div class="item-body">
+            <h3>雾城十二时</h3>
+            <p class="meta"><span class="badge">电视剧</span>悬疑 · 2023</p>
+            <p class="desc">十二小时内的三起失窃案，线索藏在同一段监控里。</p>
+          </div>
+        </article>
+        <article class="item" data-kind="anime" data-keywords="动画 奇幻 冒险 动漫 2022">
+          <div class="poster">
+            <svg viewBox="0 0 58 78" aria-hidden="true"><rect width="58" height="78" fill="#1b2331"/><path d="M29 16l9 16H20z" fill="#ffb84d"/><rect x="17" y="44" width="24" height="4" rx="2" fill="#5fd0c5"/><rect x="21" y="54" width="16" height="4" rx="2" fill="#3a465f"/></svg>
+          </div>
+          <div class="item-body">
+            <h3>风之谷旧事</h3>
+            <p class="meta"><span class="badge">动漫</span>奇幻 · 2022</p>
+            <p class="desc">少年沿着废弃风车线寻找地图上不存在的村落。</p>
+          </div>
+        </article>
+        <article class="item" data-kind="show" data-keywords="综艺 音乐 现场 2024">
+          <div class="poster">
+            <svg viewBox="0 0 58 78" aria-hidden="true"><rect width="58" height="78" fill="#22283a"/><rect x="16" y="22" width="4" height="26" rx="2" fill="#ffb84d"/><rect x="24" y="16" width="4" height="38" rx="2" fill="#ff8f3c"/><rect x="32" y="28" width="4" height="20" rx="2" fill="#5fd0c5"/><rect x="40" y="20" width="4" height="30" rx="2" fill="#ffb84d"/></svg>
+          </div>
+          <div class="item-body">
+            <h3>音浪现场</h3>
+            <p class="meta"><span class="badge gold">综艺</span>音乐 · 2024</p>
+            <p class="desc">乐队与歌手同台改编老歌，每期换一个城市录制。</p>
+          </div>
+        </article>
+        <article class="item" data-kind="movie" data-keywords="剧情 家庭 电影 2021">
+          <div class="poster">
+            <svg viewBox="0 0 58 78" aria-hidden="true"><rect width="58" height="78" fill="#1d2434"/><path d="M14 56V34a15 15 0 0130 0v22z" fill="none" stroke="#5fd0c5" stroke-width="2"/><rect x="26" y="46" width="6" height="10" rx="3" fill="#ffb84d"/></svg>
+          </div>
+          <div class="item-body">
+            <h3>长夏未晚</h3>
+            <p class="meta"><span class="badge">电影</span>家庭 · 2021</p>
+            <p class="desc">老宅拆迁前，一家人用最后一个夏天整理旧物。</p>
+          </div>
+        </article>
+        <article class="item" data-kind="tv" data-keywords="历史 古装 电视剧 2022">
+          <div class="poster">
+            <svg viewBox="0 0 58 78" aria-hidden="true"><rect width="58" height="78" fill="#212636"/><path d="M12 58h34M18 58V36l11-12 11 12v22" fill="none" stroke="#ffb84d" stroke-width="2"/><rect x="26" y="46" width="6" height="12" fill="#5fd0c5"/></svg>
+          </div>
+          <div class="item-body">
+            <h3>河山旧卷</h3>
+            <p class="meta"><span class="badge">电视剧</span>历史 · 2022</p>
+            <p class="desc">一名书吏沿运河查账，牵出三州粮价起伏的旧事。</p>
+          </div>
+        </article>
+        <article class="item" data-kind="anime" data-keywords="动画 日常 治愈 动漫 2023">
+          <div class="poster">
+            <svg viewBox="0 0 58 78" aria-hidden="true"><rect width="58" height="78" fill="#1a2230"/><circle cx="29" cy="32" r="12" fill="none" stroke="#ffb84d" stroke-width="2"/><path d="M17 60c4-8 20-8 24 0" fill="none" stroke="#5fd0c5" stroke-width="2"/></svg>
+          </div>
+          <div class="item-body">
+            <h3>小镇面包房</h3>
+            <p class="meta"><span class="badge">动漫</span>日常 · 2023</p>
+            <p class="desc">一间清晨五点亮灯的面包房，和常来的几位熟客。</p>
+          </div>
+        </article>
+        <article class="item" data-kind="show" data-keywords="综艺 访谈 文化 2023">
+          <div class="poster">
+            <svg viewBox="0 0 58 78" aria-hidden="true"><rect width="58" height="78" fill="#202736"/><rect x="16" y="24" width="26" height="18" rx="4" fill="none" stroke="#ffb84d" stroke-width="2"/><rect x="24" y="48" width="10" height="8" fill="#5fd0c5"/></svg>
+          </div>
+          <div class="item-body">
+            <h3>书房夜谈</h3>
+            <p class="meta"><span class="badge gold">综艺</span>访谈 · 2023</p>
+            <p class="desc">作家与读者围坐一室，聊一本书背后的十年。</p>
+          </div>
+        </article>
+      </div>
+      <p class="search-hint" id="emptyTip" hidden>没有匹配的条目，换个关键词或切换类型再试试。</p>
+    </div>
+  </section>
+
+  <!-- GUIDE -->
+  <section id="guide">
+    <div class="wrap">
+      <div class="prose">
+        <h2>影视大全在线怎么用：从找片到看完的完整路径</h2>
+        <p>访问影视大全在线的人，需求通常很集中：先确定看什么，再找到能看的地方。页面因此把「找片」放在最前，把「进入观看」放在每张片单卡片上，减少中间跳转。无论你是想找一部下饭剧，还是想补完某个导演的旧作，路径基本一致。</p>
+
+        <h3>第一步：确定内容形态</h3>
+        <p>电影、电视剧、动漫、综艺四类内容在观看节奏上差别明显：电影适合一次看完，剧集需要连续跟进，动漫常有季序与剧场版之分，综艺则多为周期更新。影视大全在线先按形态分频道，再在频道内按题材与年份细分，这样同一类内容不会混在一起。</p>
+
+        <h3>第二步：用关键词缩小范围</h3>
+        <p>搜索框支持片名、演员名与类型词混合输入。比如输入「悬疑」会得到题材匹配的条目，输入年份则按上映时间筛选，输入具体片名则直接命中。类型下拉框可以和关键词叠加使用，先选「电影」再输入题材词，结果会更贴近预期。</p>
+
+        <h3>第三步：看条目信息再决定</h3>
+        <p>每条片单都给出了类型、年份与一句内容提示。这三项信息足够判断是否符合口味：类型决定基调，年份帮助区分新旧版本与续作，内容提示则说明故事起点。影视大全在线的片单不堆砌宣传语，只保留能帮人做决定的要素。</p>
+
+        <h3>第四步：进入详情与播放</h3>
+        <p>确认想看后，点开条目进入详情区域，可查看更完整的简介与分集或分段信息。播放入口集中在详情页顶部，避免在长页面里来回寻找。影视大全在线的组织原则是：任何一屏都能看到下一步该点哪里，返回上一级也不会丢失筛选条件。</p>
+
+        <h3>片单维护与更新</h3>
+        <p>新上线内容会进入对应频道的前列，旧片则按口碑与年份沉淀在分类深处。影视大全在线的片单会定期调整排序，把当期关注度较高的作品前置；同时保留经典条目，避免只追新而丢掉值得重看的旧作。遇到标注失效的条目，可通过页面底部的反馈入口告知，便于后续核对。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section aria-label="客户端下载">
+    <div class="wrap">
+      <div class="download">
+        <div>
+          <h2>影视大全在线 客户端</h2>
+          <p>桌面端与移动端客户端正在准备中，提供片单同步与播放记录续看。当前版本信息尚未确定，下载入口将在完成后开放。</p>
+        </div>
+        <a class="btn-download" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8d1e2" stroke-width="2" aria-hidden="true"><path d="M12 3v12M7 11l5 5 5-5M4 21h16"/></svg>
+          下载
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>常见<span>问题</span></h2>
+          <p>关于影视大全在线的使用方式与片单范围，集中回答几个高频疑问。</p>
+        </div>
+      </div>
+      <div class="prose">
+        <h3>影视大全在线收录哪些内容？</h3>
+        <p>覆盖电影、电视剧、动漫与综艺四大类，按题材、地区与年份组织片单。页面展示的是条目信息与分类入口，具体可看范围以条目详情标注为准。</p>
+        <h3>找不到想看的片子怎么办？</h3>
+        <p>先用搜索框尝试片名的常见译名或原名，再切换类型缩小范围。若仍无结果，可换用题材词与年份组合检索。影视大全在线的片单会持续补充，暂时缺失的条目可能在后续更新中出现。</p>
+        <h3>片单排序依据是什么？</h3>
+        <p>综合内容上线时间、题材热度与用户查看情况排列，新内容前置，经典作品保留在分类中。排序不涉及付费推广。</p>
+        <h3>能否在手机上使用？</h3>
+        <p>页面已适配手机屏幕，导航、搜索与片单卡片在小屏下重新排布，单手即可完成找片与切换类型。客户端下载入口待开放后会另行标注。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-inner">
+      <div class="foot-brand">
+        <a class="logo" href="#top" aria-label="影视大全在线 返回顶部">
+          <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#0f1220"/>
+            <rect x="14" y="14" width="36" height="36" rx="7" fill="none" stroke="#ffb84d" stroke-width="3"/>
+            <path d="M27 24l14 8-14 8z" fill="#ffb84d"/>
+          </svg>
+          <span class="logo-text">影视大全在线</span>
+        </a>
+        <p>影视大全在线提供电影、电视剧、动漫与综艺的分类片单与点播入口，按题材与年份整理内容，帮助访问者更快找到想看的作品。</p>
+      </div>
+      <div class="foot-links">
+        <div>
+          <h4>站内导航</h4>
+          <a href="#categories">影片分类</a>
+          <a href="#picks">热门片单</a>
+          <a href="#guide">观看路径</a>
+          <a href="#faq">常见问题</a>
+        </div>
+        <div>
+          <h4>内容频道</h4>
+          <a href="#picks">电影频道</a>
+          <a href="#picks">电视剧频道</a>
+          <a href="#picks">动漫频道</a>
+          <a href="#picks">综艺频道</a>
+        </div>
+      </div>
+    </div>
+    <div class="copy">
+      <span>影视大全在线 · 片单信息以条目标注为准</span>
+      <span>页面内容为示例条目，用于展示分类与查找方式</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var toggle=document.querySelector('.menu-toggle');
+  var nav=document.getElementById('mainnav');
+  if(toggle&&nav){
+    toggle.addEventListener('click',function(){
+      var open=nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded',open?'true':'false');
+    });
+    nav.addEventListener('click',function(e){
+      if(e.target.tagName==='A'&&window.innerWidth<=720){
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  var form=document.getElementById('searchForm');
+  var q=document.getElementById('q');
+  var kind=document.getElementById('kind');
+  var grid=document.getElementById('listGrid');
+  var items=Array.prototype.slice.call(grid.querySelectorAll('.item'));
+  var empty=document.getElementById('emptyTip');
+  var countNum=document.getElementById('countNum');
+
+  function filter(){
+    var kw=(q.value||'').trim().toLowerCase();
+    var k=kind.value;
+    var shown=0;
+    items.forEach(function(it){
+      var text=(it.getAttribute('data-keywords')+' '+it.textContent).toLowerCase();
+      var okKind=(k==='all'||it.getAttribute('data-kind')===k);
+      var okKw=(kw===''||text.indexOf(kw)>-1);
+      var show=okKind&&okKw;
+      it.style.display=show?'':'none';
+      if(show)shown++;
+    });
+    countNum.textContent=shown;
+    empty.hidden=shown!==0;
+  }
+
+  form.addEventListener('submit',function(e){e.preventDefault();filter();});
+  q.addEventListener('input',filter);
+  kind.addEventListener('change',filter);
+  filter();
+})();
+</script>
+</body>
+  </html>
