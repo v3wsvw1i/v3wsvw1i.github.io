@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日大赛yandex官方-每日大赛yandex官方入口_热门大赛合集与今日看点</title>
+<meta name="description" content="每日大赛yandex官方首页，汇集每日大赛热门看点、大赛合集入口、今日更新与常见问题，帮助访问者快速了解每日大赛yandex官方的主题内容与实际访问路径。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111827'/%3E%3Cpath d='M18 40l8-16 6 10 5-8 9 14z' fill='%23f5b942'/%3E%3Ccircle cx='45' cy='21' r='5' fill='%23f5b942'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#141519;
+  --ink-soft:#4a4d57;
+  --line:#e6e2d8;
+  --bg:#faf7f0;
+  --card:#ffffff;
+  --gold:#c8901f;
+  --gold-soft:#f5b942;
+  --dark:#171a21;
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,"Segoe UI",sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+img,svg{display:block;max-width:100%;}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px;}
+
+/* header */
+header.site{
+  position:sticky;top:0;z-index:50;
+  background:rgba(250,247,240,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;padding:12px 0;
+}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;letter-spacing:.2px;}
+.logo-mark{
+  width:34px;height:34px;border-radius:9px;background:var(--dark);
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto;
+}
+nav.main{display:flex;gap:6px;flex-wrap:wrap;}
+nav.main a{
+  font-size:14px;color:var(--ink-soft);
+  padding:6px 11px;border-radius:999px;transition:.2s;
+}
+nav.main a:hover{background:#efe9dc;color:var(--ink);}
+.header-cta{
+  font-size:14px;font-weight:700;background:var(--dark);color:#f7e3b3;
+  padding:9px 18px;border-radius:999px;white-space:nowrap;transition:.2s;
+}
+.header-cta:hover{background:#2a2f3a;}
+
+/* hero */
+.hero{
+  padding:56px 0 44px;
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(680px 260px at 88% -10%,rgba(245,185,66,.20),transparent 70%),
+    radial-gradient(520px 220px at 6% 110%,rgba(23,26,33,.06),transparent 70%);
+}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:44px;align-items:center;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:700;color:var(--gold);
+  background:#fdf3dc;border:1px solid #f2e0b4;
+  padding:5px 13px;border-radius:999px;margin-bottom:18px;
+}
+h1{
+  font-size:clamp(27px,4.2vw,44px);
+  line-height:1.22;font-weight:900;letter-spacing:-.4px;
+  margin-bottom:18px;
+}
+h1 .hl{color:var(--gold);}
+.hero p.lead{color:var(--ink-soft);font-size:16px;max-width:38em;margin-bottom:26px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+.btn-primary{
+  background:var(--dark);color:#fff;font-weight:700;font-size:15px;
+  padding:13px 26px;border-radius:999px;transition:.2s;
+}
+.btn-primary:hover{background:#2a2f3a;transform:translateY(-1px);}
+.btn-ghost{
+  border:1px solid var(--line);background:#fff;color:var(--ink);
+  font-weight:700;font-size:15px;padding:12px 24px;border-radius:999px;transition:.2s;
+}
+.btn-ghost:hover{border-color:#cfc7b4;background:#fdfaf3;}
+.hero-stats{display:flex;gap:26px;margin-top:32px;flex-wrap:wrap;}
+.hero-stats div{font-size:13px;color:var(--ink-soft);}
+.hero-stats strong{display:block;font-size:22px;color:var(--ink);font-weight:900;}
+.hero-visual{
+  background:var(--dark);border-radius:22px;padding:26px;
+  box-shadow:0 24px 50px -28px rgba(20,21,25,.55);
+}
+
+/* sections */
+section{padding:56px 0;}
+.sec-head{margin-bottom:28px;max-width:44em;}
+.sec-head h2{font-size:clamp(21px,2.6vw,28px);font-weight:900;letter-spacing:-.2px;margin-bottom:10px;}
+.sec-head p{color:var(--ink-soft);font-size:15px;}
+.tag{font-size:12px;font-weight:800;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;display:block;margin-bottom:8px;}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;transition:.22s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 16px 34px -22px rgba(20,21,25,.4);border-color:#ded5c2;}
+.card .ico{
+  width:42px;height:42px;border-radius:11px;background:#fdf3dc;
+  display:flex;align-items:center;justify-content:center;margin-bottom:15px;
+}
+.card h3{font-size:17px;font-weight:800;margin-bottom:9px;}
+.card p{font-size:14px;color:var(--ink-soft);line-height:1.7;}
+
+/* list rows */
+.rows{display:flex;flex-direction:column;gap:12px;}
+.row{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 22px;display:grid;grid-template-columns:64px 1fr auto;gap:18px;align-items:center;
+  transition:.2s;
+}
+.row:hover{border-color:#ded5c2;background:#fffdf8;}
+.row .num{
+  font-weight:900;font-size:15px;color:var(--gold);
+  background:#fdf3dc;border-radius:10px;text-align:center;padding:10px 0;
+}
+.row h3{font-size:16px;font-weight:800;margin-bottom:4px;}
+.row p{font-size:14px;color:var(--ink-soft);}
+.row .pill{
+  font-size:12px;font-weight:700;color:var(--ink-soft);
+  border:1px solid var(--line);border-radius:999px;padding:5px 12px;white-space:nowrap;
+}
+
+/* two column */
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:start;}
+.prose p{margin-bottom:16px;color:var(--ink-soft);font-size:15.5px;}
+.prose strong{color:var(--ink);}
+.aside{
+  background:var(--dark);color:#e8e2d4;border-radius:var(--radius);padding:28px;
+}
+.aside h3{font-size:17px;font-weight:800;color:#fff;margin-bottom:16px;}
+.aside ul{list-style:none;display:flex;flex-direction:column;gap:13px;}
+.aside li{font-size:14px;line-height:1.65;color:#c9c3b6;padding-left:20px;position:relative;}
+.aside li::before{
+  content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;
+  background:var(--gold-soft);
+}
+.aside li b{color:#f7e3b3;font-weight:700;}
+.dl-btn{
+  display:inline-flex;align-items:center;gap:9px;margin-top:22px;
+  background:var(--gold-soft);color:#241c07;font-weight:800;font-size:14px;
+  padding:12px 22px;border-radius:999px;pointer-events:none;
+}
+
+/* faq */
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.qa{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;}
+.qa h3{font-size:15.5px;font-weight:800;margin-bottom:8px;}
+.qa p{font-size:14px;color:var(--ink-soft);}
+
+/* footer */
+footer.site{
+  background:var(--dark);color:#a8a396;padding:44px 0 30px;margin-top:20px;
+}
+.foot-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:28px;}
+.foot-brand{max-width:34em;}
+.foot-brand .logo{color:#fff;margin-bottom:12px;}
+.foot-brand p{font-size:13.5px;line-height:1.8;color:#a8a396;}
+.foot-links{display:flex;gap:44px;flex-wrap:wrap;}
+.foot-links h4{font-size:13px;color:#f7e3b3;letter-spacing:1px;margin-bottom:12px;font-weight:800;}
+.foot-links a{display:block;font-size:13.5px;color:#a8a396;margin-bottom:8px;transition:.2s;}
+.foot-links a:hover{color:#fff;}
+.foot-bottom{border-top:1px solid #2a2e37;padding-top:20px;font-size:12.5px;color:#78746a;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+
+@media(max-width:900px){
+  .hero-grid,.split{grid-template-columns:1fr;gap:30px;}
+  .cards{grid-template-columns:1fr 1fr;}
+  .hero-visual{order:-1;}
+}
+@media(max-width:640px){
+  body{font-size:15.5px;}
+  .header-inner{flex-wrap:wrap;gap:10px;}
+  nav.main{order:3;width:100%;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px;}
+  nav.main a{white-space:nowrap;font-size:13.5px;}
+  .header-cta{font-size:13px;padding:8px 15px;}
+  .hero{padding:34px 0 32px;}
+  section{padding:40px 0;}
+  .cards,.faq{grid-template-columns:1fr;}
+  .row{grid-template-columns:52px 1fr;gap:14px;}
+  .row .pill{grid-column:2;justify-self:start;}
+  .hero-stats{gap:18px;}
+  .foot-links{gap:30px;}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top">
+      <span class="logo-mark" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M4 17l4-9 3.2 5.4L13.8 9 20 17H4z" fill="#f5b942"/>
+          <circle cx="17.4" cy="6.4" r="2.1" fill="#f5b942"/>
+        </svg>
+      </span>
+      每日大赛yandex官方
+    </a>
+    <nav class="main" aria-label="主导航">
+      <a href="#today">今日看点</a>
+      <a href="#collections">大赛合集</a>
+      <a href="#guide">访问说明</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <a class="header-cta" href="#today">进入今日页</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- hero -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#c8901f"><circle cx="12" cy="12" r="10"/></svg>
+          主题首页 · 每日更新
+        </span>
+        <h1>每日大赛yandex官方</h1>
+        <p class="lead">这里把每日大赛yandex官方相关的内容集中在一页：当天值得先看的条目、按类别归拢的大赛合集，以及进入各栏目时需要注意的访问说明。页面按浏览顺序组织，先看要点，再按需深入。</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#today">浏览今日看点</a>
+          <a class="btn-ghost" href="#collections">查看大赛合集</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>5</strong>个内容分区</div>
+          <div><strong>每日</strong>更新节奏</div>
+          <div><strong>1</strong>个统一入口</div>
+        </div>
+      </div>
+      <aside class="hero-visual" aria-label="页面结构示意">
+        <svg viewBox="0 0 320 230" role="img" aria-label="每日大赛主题示意图">
+          <rect x="0" y="0" width="320" height="230" rx="16" fill="#1c2029"/>
+          <circle cx="262" cy="46" r="26" fill="#f5b942" opacity=".9"/>
+          <path d="M20 176l44-84 30 50 22-34 38 68z" fill="#f5b942" opacity=".85"/>
+          <rect x="20" y="30" width="118" height="10" rx="5" fill="#3a4150"/>
+          <rect x="20" y="50" width="76" height="10" rx="5" fill="#2c323d"/>
+          <rect x="20" y="192" width="280" height="1" fill="#333a46"/>
+          <rect x="20" y="204" width="64" height="8" rx="4" fill="#3a4150"/>
+          <rect x="96" y="204" width="44" height="8" rx="4" fill="#2c323d"/>
+          <rect x="210" y="120" width="86" height="54" rx="9" fill="#232833"/>
+          <rect x="222" y="134" width="52" height="7" rx="3.5" fill="#f5b942" opacity=".75"/>
+          <rect x="222" y="148" width="62" height="7" rx="3.5" fill="#4a5160"/>
+        </svg>
+      </aside>
+    </div>
+  </div>
+
+  <!-- today -->
+  <section id="today">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tag">今日看点</span>
+        <h2>先看这几条，再决定往下翻</h2>
+        <p>今日看点按“先结论、后细节”的顺序排列。每条只交代它自己的内容与所属类别，不重复其他区块的说辞，方便快速判断是否继续阅读。</p>
+      </div>
+      <div class="rows">
+        <article class="row">
+          <span class="num">01</span>
+          <div>
+            <h3>入口页保持单一路径</h3>
+            <p>每日大赛yandex官方的入口集中在页头与首屏两处，点击后回到本页对应分区，不跳转至无关页面。</p>
+          </div>
+          <span class="pill">入口</span>
+        </article>
+        <article class="row">
+          <span class="num">02</span>
+          <div>
+            <h3>合集按类别归拢</h3>
+            <p>不同类别的大赛内容分列展示，同类条目相邻，避免在长列表中反复辨认归属。</p>
+          </div>
+          <span class="pill">合集</span>
+        </article>
+        <article class="row">
+          <span class="num">03</span>
+          <div>
+            <h3>更新以天为单位</h3>
+            <p>页面内容随日期推进调整顺序，当天新增或变动的条目排在前面，历史条目顺次下移。</p>
+          </div>
+          <span class="pill">更新</span>
+        </article>
+        <article class="row">
+          <span class="num">04</span>
+          <div>
+            <h3>说明区回答访问细节</h3>
+            <p>访问说明区集中处理设备、加载与显示等实际操作问题，与内容区互不干扰。</p>
+          </div>
+          <span class="pill">说明</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- collections -->
+  <section id="collections" style="background:#f3eee2;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tag">大赛合集</span>
+        <h2>按类别浏览，而不是按时间硬翻</h2>
+        <p>合集区把每日大赛yandex官方的内容分成几个可辨认的类别。每个类别说明它收什么、适合谁看，读者据此选择入口，不必逐条浏览。</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="ico">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#c8901f" stroke-width="1.8" stroke-linecap="round"><path d="M4 19V9l8-5 8 5v10"/><path d="M9 19v-6h6v6"/></svg>
+          </div>
+          <h3>主推合集</h3>
+          <p>当天位置靠前、更新较完整的条目集中在此。适合只想了解整体情况、不打算逐项查看的访问者。</p>
+        </article>
+        <article class="card">
+          <div class="ico">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#c8901f" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v16"/></svg>
+          </div>
+          <h3>分类速览</h3>
+          <p>按内容类别并列展示，每条附一句定位说明。适合已经明确想看哪一类、需要快速定位的读者。</p>
+        </article>
+        <article class="card">
+          <div class="ico">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#c8901f" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+          </div>
+          <h3>历史留存</h3>
+          <p>按日期倒序保留此前条目，方便回看。历史条目保持原有顺序，不做二次编辑。</p>
+        </article>
+        <article class="card">
+          <div class="ico">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#c8901f" stroke-width="1.8" stroke-linecap="round"><path d="M12 3l2.6 5.6 6 .8-4.4 4.2 1.1 6-5.3-3-5.3 3 1.1-6L3.4 9.4l6-.8z"/></svg>
+          </div>
+          <h3>编辑挑选</h3>
+          <p>由编辑从当日条目中挑出位置与完整度较好者，单独成列，与主推合集不重复计数。</p>
+        </article>
+        <article class="card">
+          <div class="ico">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#c8901f" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+          </div>
+          <h3>榜单式排列</h3>
+          <p>部分类别采用编号排列，序号仅表示页内顺序，不代表评价高低，读者可按编号定位。</p>
+        </article>
+        <article class="card">
+          <div class="ico">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#c8901f" stroke-width="1.8" stroke-linecap="round"><path d="M5 12l4 4 10-10"/></svg>
+          </div>
+          <h3>条目状态标注</h3>
+          <p>每条标明当前状态：新增、保持或已归档。状态文字与条目同行显示，不做额外提示。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- guide -->
+  <section id="guide">
+    <div class="wrap split">
+      <div class="prose">
+        <span class="tag">访问说明</span>
+        <h2 style="font-size:clamp(21px,2.6vw,28px);font-weight:900;margin-bottom:18px;">每日大赛yandex官方页面怎么读</h2>
+        <p>每日大赛yandex官方是一个以每日更新为节奏的主题首页。它的阅读顺序刻意做得简单：首屏给出主题与两个入口，今日看点交代当天要点，大赛合集负责归类，访问说明与常见问题处理实际操作层面的事情。</p>
+        <p><strong>先定类别，再看条目。</strong>如果你已经知道想看哪一类，直接从合集区进入即可；如果只是了解当天情况，从今日看点往下读，四条要点通常足以判断是否需要深入。</p>
+        <p><strong>状态标注优先于序号。</strong>编号只表示页内位置，条目旁边的状态文字才说明它是否为新内容。回看历史时，建议以状态与日期为准，而不是以编号先后判断新旧。</p>
+        <p><strong>页面内容直接呈现。</strong>主要条目、类别说明与常见问题都以静态文字写在页面里，不需要额外操作即可阅读。页面中出现的按钮与链接均指向本页已有分区。</p>
+        <p>每日大赛yandex官方不设注册流程，也不收集访问者信息。若页面显示异常，优先检查浏览器缩放与网络加载，这两项是常见原因。</p>
+      </div>
+      <aside class="aside" aria-label="页面使用要点">
+        <h3>使用要点</h3>
+        <ul>
+          <li><b>入口</b>：页头按钮与首屏按钮都回到今日看点。</li>
+          <li><b>合集</b>：六个类别并列，同类相邻。</li>
+          <li><b>状态</b>：新增、保持、已归档三种标注。</li>
+          <li><b>回看</b>：历史条目按日期倒序保留。</li>
+          <li><b>适配</b>：桌面与手机端均按单列阅读顺序排布。</li>
+        </ul>
+        <a class="dl-btn" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#241c07" stroke-width="2.2" stroke-linecap="round"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>
+          下载
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- faq -->
+  <section id="faq" style="background:#f3eee2;border-top:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tag">常见问题</span>
+        <h2>访问每日大赛yandex官方时最常问的几件事</h2>
+        <p>以下问答只针对页面本身的行为与显示，不涉及页面之外的承诺。</p>
+      </div>
+      <div class="faq">
+        <article class="qa">
+          <h3>页面多久更新一次？</h3>
+          <p>以天为单位调整顺序，当天条目排前。更新时保持原有类别归属不变，只移动位置与状态标注。</p>
+        </article>
+        <article class="qa">
+          <h3>需要登录才能看内容吗？</h3>
+          <p>不需要。每日大赛yandex官方的主要内容直接呈现在页面中，打开即可阅读。</p>
+        </article>
+        <article class="qa">
+          <h3>编号是否代表排名？</h3>
+          <p>不代表。编号只用于页内定位，判断新旧请看条目旁的状态标注与日期。</p>
+        </article>
+        <article class="qa">
+          <h3>手机上看排版会乱吗？</h3>
+          <p>不会。窄屏下卡片改为单列，导航横向排列，正文行长随屏宽收窄，阅读顺序与桌面一致。</p>
+        </article>
+        <article class="qa">
+          <h3>下载按钮为什么点不动？</h3>
+          <p>该按钮目前为占位状态，尚未绑定实际文件，因此保持禁用。等资源就位后会替换为可用入口。</p>
+        </article>
+        <article class="qa">
+          <h3>历史条目还会改动吗？</h3>
+          <p>历史条目保持归档时的样子，只做位置下移，不修改正文内容。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="logo">
+          <span class="logo-mark" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M4 17l4-9 3.2 5.4L13.8 9 20 17H4z" fill="#f5b942"/>
+              <circle cx="17.4" cy="6.4" r="2.1" fill="#f5b942"/>
+            </svg>
+          </span>
+          每日大赛yandex官方
+        </div>
+        <p>每日大赛yandex官方的主题首页，按今日看点、大赛合集、访问说明与常见问题四层组织内容，帮助访问者在一页之内完成浏览与定位。</p>
+      </div>
+      <div class="foot-links">
+        <div>
+          <h4>页面分区</h4>
+          <a href="#today">今日看点</a>
+          <a href="#collections">大赛合集</a>
+          <a href="#guide">访问说明</a>
+          <a href="#faq">常见问题</a>
+        </div>
+        <div>
+          <h4>合集类别</h4>
+          <a href="#collections">主推合集</a>
+          <a href="#collections">分类速览</a>
+          <a href="#collections">历史留存</a>
+          <a href="#collections">编辑挑选</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>每日大赛yandex官方 · 主题首页</span>
+      <span>内容以页面实际呈现为准</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
